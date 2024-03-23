@@ -1,0 +1,38 @@
+<div class="product_header">
+<h1 >PRODUCTS</h1>
+<%= link_to image_tag("arrows/home.png", class: "home_img"), products_path %>
+</div>
+<hr/>
+    <div class = "product">
+            <%= image_tag @product.avatar.url, class:"product_img"%> 
+
+        <div class= "product_text">
+            <div class = "product_name">
+                <h2>NAME</h2>
+                <p><%= @product.name %></p>
+                <hr/>
+            </div>
+            <div class="product_description">
+                <h2>DESCRIPTION</h2>
+                <p><%= @product.description %></p>
+                <hr/>
+            </div>
+            <div class="product_price">
+                <h2>PRICE</h2>
+                <p><%= @product.price %></p>
+                <hr/>
+            </div>
+            <div class="product_rating">
+                <h2>RATING</h2>
+                <p><%= @product.rating %></p>
+                <hr/>
+            </div>
+        </div>
+    </div>
+    <% if current_user.role=="seller"  %>
+     <%= link_to "Edit Product", edit_product_path, class: "product_edit" %>
+<% end %>
+
+    
+    
+  

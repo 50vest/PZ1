@@ -1,0 +1,7 @@
+<%= render 'comments/form', product: @product %>
+<% @product.comments.each do |comment| %>
+  <div class="comment">
+    <p><%= comment.content %></p>
+    <p>Posted by: <%= comment.user.email %></p>
+  </div>
+<% end %>

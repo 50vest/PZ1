@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Marketplace</title>
+    <%= stylesheet_link_tag 'styles' %>
+    <%= stylesheet_link_tag 'devise_reg.css' %>
+    <%= stylesheet_link_tag 'devise_edit.css' %>
+    <%= stylesheet_link_tag 'product.css' %>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+  <body>
+     <%= yield %>
+    <%= render partial: "cart/cart" if @render_cart %>
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </body>
+</html>

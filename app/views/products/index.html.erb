@@ -1,0 +1,26 @@
+<div class="product_header">
+
+  <h1> YOUR PRODUCTS <h1>
+  <%= link_to image_tag("arrows/home.png", class: "home_img"), root_path %>
+</div>
+<hr/>
+<% @products.each do |product| %>
+  <div class = "product_image-container">
+    <p><%= product.name %></p> 
+     <%= image_tag product.avatar.url, class:"product_image"%>
+     <br/>
+  <%= link_to "Show Product", product_path(product), class: "product_show-btn" %>
+     </div>
+      <%= form_with(url: cart_add_path) do |f| %>
+    <%= f.hidden_field :id, value: product.id %>
+    <%= f.number_field :quantity, value: 0, min: 1 %>
+    <%= f.submit "Add To Cart" %>
+  <% end %>
+<%# <%= button_to 'Купить', buy_path(product), method: :post, params: product.id%>
+<% end %>
+<br/>
+<% if current_user.role=="seller"  %>
+<%= link_to "Create Product", new_product_path, class: "product_create-btn" %>
+<% end %>
+
+

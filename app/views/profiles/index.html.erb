@@ -1,0 +1,56 @@
+<body>
+<div class="nav-item">
+<h1>PROFILE</h1>
+<div class="home-buttons">
+<%= link_to "Sign up", new_user_registration_path, class:"sign-up" %>
+<% if current_user %>
+    <%= link_to "Sign out", destroy_user_session_path, 'data-turbo-method': :delete, class:"sign-out"%>
+</div>
+</div>
+<hr/>
+<div class="profile-title"> 
+<p> <span>Welcome</span> <%= current_user.username %>
+    </p> 
+</div>
+<div class="profile_content">  
+    <p>
+        <span>Your email:</span>  
+        <%= current_user.email %>
+    </p> 
+    <hr/>  
+    <p>
+        <span>First name:</span>  
+        <%= current_user.first_name %>
+    </p> 
+    <hr/>  
+    <p>
+        <span>Last name:</span>  
+        <%= current_user.last_name%>
+    </p> 
+    <hr/>  
+    <p>
+        <span>User role:</span>   
+        <%= current_user.role%>
+    </p> 
+    <hr/>  
+    <p>
+        <span>Created:</span>  
+        <%= current_user.created_at%>
+    </p> 
+    <hr/>  
+    <p>
+        <span>Updated:</span>  
+        <%= current_user.updated_at%>
+    </p> 
+    <hr/> 
+        <%= button_to 'Change Role', change_role_to_seller_user_path(current_user) %>
+    <% end %> 
+    <%= link_to "Edit Account", edit_user_registration_path, class:"edit"%> 
+    
+    <%= link_to "My Products", products_path() %> 
+
+
+</div>
+    
+    
+</body>
